@@ -15,10 +15,13 @@ jobs:
         #swift versions
     
     steps:
+      - name: Checkout Code
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
         with:
-          node-version: '14'
-      - run: npm ci
-      - run: npm test
-      - run: npm build
+          fetch-depth: 0
+      - name: Linter
+        uses: github/super-linter@v3
+        env: 
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
