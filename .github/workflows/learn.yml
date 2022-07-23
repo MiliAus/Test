@@ -13,14 +13,14 @@ jobs:
     #strategy:
       #matrix:
         #swift versions
-    
+   
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Linter
-        uses: github/super-linter@v4.9.4
+        uses: github/super-linter@v4.9.4    #calling the Super-Linter to scan through code for errors
         env: 
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
